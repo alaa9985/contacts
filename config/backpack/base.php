@@ -111,7 +111,7 @@ return [
     'developer_link' => 'http://alaa.ro',
 
     // Show powered by Laravel Backpack in the footer? true/false
-    'show_powered_by' => false,
+    'show_powered_by' => true,
 
     // -------
     // SCRIPTS
