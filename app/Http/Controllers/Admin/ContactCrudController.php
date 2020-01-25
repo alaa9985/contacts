@@ -35,30 +35,30 @@ class ContactCrudController extends CrudController
 
         $this->crud->addColumn([
             'name' => 'profilePicture', // The db column name
-            'label' => "Profile image", // Table column heading
+            'label' => trans('contact.profilePicture'),
             'type' => 'image',
              'height' => '30px',
              'width' => '30px',
         ]);
         $this->crud->addColumn([
             'name' => 'name', // The db column name
-            'label' => "name", // Table column heading
+            'label' => trans('contact.name'),
             'type' => 'text'
         ]);
         $this->crud->addColumn([
             'name' => 'phoneNumber', // The db column name
-            'label' => "Phone number", // Table column heading
+            'label' => trans('contact.phoneNumber'),
             'type' => 'phone',
         ]);
         $this->crud->addColumn([
             'name' => 'email', // The db column name
-            'label' => "Email Address", // Table column heading
+            'label' => trans('contact.email'),
             'type' => 'email',
             // 'limit' => 500, // if you want to truncate the text to a different number of cha
         ]);
         $this->crud->addColumn([
             'name' => "birthday", // The db column name
-            'label' => "Date de naissance", // Table column heading
+            'label' => trans('contact.birthday'),
             'type' => "date",
         ]);
     }
@@ -73,20 +73,20 @@ class ContactCrudController extends CrudController
         $this->crud->addField([
             'name' => 'name',
             'type' => 'text',
-            'label' => "Tag name"  ,
+            'label' => trans('contact.name'),
         ]);
         $this->crud->addField([
             'name' => 'email',
-            'label' => 'Address mail',
+            'label' => trans('contact.email'),
             'type' => 'email'
         ]);
         $this->crud->addField([
             'name' => 'phoneNumber',
-            'label' => 'phoneNumber',
+            'label' => trans('contact.phoneNumber'),
             'type' => 'number',
         ]);
         $this->crud->addField([
-            'label' => "Profile Image",
+            'label' => trans('contact.profilePicture'),
             'name' => "profilePicture",
             'filename' => "image_filename", // set to null if not needed
             'type' => 'base64_image',
@@ -96,16 +96,17 @@ class ContactCrudController extends CrudController
         ]);
         $this->crud->addField([
             'name' => 'address',
-            'label' => 'Address',
+            'label' => trans('contact.address'),
             'type' => 'address_algolia',
             // optional
-            'store_as_json' => true
+            'store_as_json' => true,
+            'hint' => 'Saisissez les premières lettres de votre adress et sélectionnez-la dans la liste. ',
         ]);
         $this->crud->addField(
             [
                 'name' => 'birthday',
                 'type' => 'date_picker',
-                'label' => 'Date',
+                'label' => trans('contact.birthday'),
                 // optional:
                 'date_picker_options' => [
                     'todayBtn' => 'linked',

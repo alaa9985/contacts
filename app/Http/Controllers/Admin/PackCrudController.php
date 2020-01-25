@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\PackRequest;
+use App\Models\Attribute;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -29,8 +30,12 @@ class PackCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
-//        $this->setColumns(['name']);
+        $this->crud->addColumn([
+            'name' => 'name', // The db column name
+            'label' => trans('pack.name'),
+            'type' => 'text'
+        ]);
+        
     }
 
     protected function setupCreateOperation()
@@ -42,6 +47,14 @@ class PackCrudController extends CrudController
             'name' => 'name',
             'type' => 'text',
             'label' => "Nom du pack"  ,
+        ]);
+        $this->crud->addField([   // select_and_order
+            'name' => 'attributes',
+            'label' => "Listes des attributs",
+            'type' => 'select_and_order',
+            'options' => Attribute::get()->pluck('label','id')->toArray(),
+            //'tab'   => trans('pack.attributes_tab'),
+
         ]);
         //$this->crud->setFromDb();
     }

@@ -32,21 +32,33 @@ class DatabaseSeeder extends Seeder
             [
                 'name'	        => 'name',
                 'label'         =>'nom'
-
             ],
             [
                 'name'	        => 'email',
                 'label'         =>'adress mail '
-
             ],
             [
                 'name'	        => 'phoneNumber',
                 'label'         =>'Numero de telephone '
-
             ],
+            [
+                'name'	        => 'profilePicture',
+                'label'         =>'Photo de profile'
+            ],
+            [
+                'name'	        => 'address',
+                'label'         =>'adress'
+            ],
+            [
+                'name'	        => 'birthday',
+                'label'         =>'Date de naissance'
+            ],
+
+
 
         ];
 
         DB::table('users')->insert($users);
+        DB::table('attributes')->insert($attributes);
     }
 }

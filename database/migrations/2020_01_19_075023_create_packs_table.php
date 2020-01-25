@@ -15,6 +15,7 @@ class CreatePacksTable extends Migration
         Schema::create('packs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->json('attributes');
             $table->timestamps();
         });
     }

@@ -62,7 +62,7 @@ class TicketCrudController extends CrudController
             });
         $this->crud->addColumn([
             'name' => 'name', // The db column name
-            'label' => "name", // Table column heading
+            'label' => "Nom de ticket", // Table column heading
             'type' => 'text'
         ]);
         $this->crud->addColumn([
@@ -100,7 +100,7 @@ class TicketCrudController extends CrudController
         $this->crud->addField([
             'name' => 'name',
             'type' => 'text',
-            'label' => "Tag name"  ,
+            'label' => "Nom de ticket"  ,
             'tab'   => trans('ticket.general_tab'),
 
         ]);

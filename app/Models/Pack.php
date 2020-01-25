@@ -22,6 +22,9 @@ class Pack extends Model
     // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
+    protected $casts = [
+        'attributes' => 'array'
+    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -36,6 +39,9 @@ class Pack extends Model
     */
     public function tickets(){
         return $this->hasMany(Ticket::class);
+    }
+    public function attributes(){
+        return $this->hasMany(Attribute::class);
     }
     /*
     |--------------------------------------------------------------------------
